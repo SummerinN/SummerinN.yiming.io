@@ -55,7 +55,7 @@ imageBounds = [[-48.4,-135], [-48.4,45]] ;
 L.graticule({ intervalLat: 10, intervalLng: 30, latBounds: [-90,-45], centerLonLabels:true }).addTo(map);
 
 // 从CSV加载数据
-fetch('test4.csv')
+fetch('web/test4.csv')
     .then(response => response.text())
     .then(csvText => {
         var data = Papa.parse(csvText, {header: true}).data;
