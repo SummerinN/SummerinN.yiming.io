@@ -63,41 +63,41 @@ fetch('web/test4.csv')
         // 定义不同类型的自定义图标
         var icons = {
           'Marine Sediment': L.icon({ 
-            iconUrl: 'marine_sediment.png', 
+            iconUrl: 'web/images/marine_sediment.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28],
-            shadowUrl: 'shadow.png', // 阴影图片的URL
+            shadowUrl: 'web/images/shadow.png', // 阴影图片的URL
             shadowSize: [60, 60], // 阴影的大小
             shadowAnchor: [35, 45],  // 阴影的锚点
             opacity: 0.5
           }),
           'On Beach': L.icon({ 
-            iconUrl: 'on_beach.png', 
+            iconUrl: 'web/images/on_beach.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28] ,
-            shadowUrl: 'shadow.png', // 阴影图片的URL
+            shadowUrl: 'web/images/shadow.png', // 阴影图片的URL
             shadowSize: [60, 60], // 阴影的大小
             shadowAnchor: [35, 45],  // 阴影的锚点
             opacity: 0.5
           }),
           'snow': L.icon({ 
-            iconUrl: 'snow.png', 
+            iconUrl: 'web/images/snow.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28],
-            shadowUrl: 'shadow.png', // 阴影图片的URL
+            shadowUrl: 'web/images/shadow.png', // 阴影图片的URL
             shadowSize: [60, 60], // 阴影的大小
             shadowAnchor: [35, 45],  // 阴影的锚点
             opacity: 0.5
           }),
           'Water': L.icon({ 
-            iconUrl: 'water.png', 
+            iconUrl: 'web/images/water.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28] ,
-            shadowUrl: 'shadow.png', // 阴影图片的URL
+            shadowUrl: 'web/images/shadow.png', // 阴影图片的URL
             shadowSize: [60, 60], // 阴影的大小
             shadowAnchor: [35, 45],  // 阴影的锚点
             opacity: 0.5
