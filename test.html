@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.0.0/papaparse.min.js"></script>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+    <!-- Proj4js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.2/proj4.js"></script>
+    <script src="https://unpkg.com/proj4leaflet@1.0.2/lib/proj4-compressed.js" integrity="sha384-R7x++v2MKcATI+D1/GJsn636xbHca492Sdpm8BD36lj5vdWB9+OUBpM1oKkrzqv9" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/proj4leaflet@1.0.2/src/proj4leaflet.js" integrity="sha384-aDnBHDK9AhLbrYhThBxEVMriFbix8Sz2059IlD3HbZhz7+WNmz+pSkOcI7MY72cE" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/leaflet-polar-graticule@0.1.2/L.Graticule.min.js" integrity="sha384-ZnsQFe3F+Xr0kzjaMGtAPO+41YGRanGndF7uefFEA/N87dUB4kHhq+xv7GHnWbh/" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="title">
+        <h1>
+            Discovery of Plastic Samples on Antarctica
+        </h1>
+        <h2>
+            Research data on plastic pollution samples in Antarctica and surrounding areas.
+        </h2>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            Where the plastic were found:
+            <div class="legend">
+            Plastic Fragments Floating in the Ocean
+            </div>
+            <div class="IMG">
+                <img src="water.png" alt="water.png" class="imglegend">
+            </div>
+            <div class="legend">
+            Marine Sediment Deposited on the Seabed
+            </div>
+            <div class="IMG">
+                <img src="marine_sediment.png" alt="marine_sediment.png" class="imglegend">
+            </div>
+            <div class="legend">
+                Found in snow
+            </div>
+            <div class="IMG">
+                <img src="snow.png" alt="snow.png" class="imglegend">
+            </div>
+            <div class="legend">
+            Found on the beach of the Antarctica
+                </div>
+                <div class="IMG">
+                    <img src="on_beach.png" alt="beach.png" class="imglegend">
+                </div>
+            </div>
+        <div id="map">
+            <script src="script.js"></script>
+        </div>
+    </div>
+
+
+</body>
+</html>
