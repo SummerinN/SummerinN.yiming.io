@@ -96,7 +96,7 @@ data.forEach(point => {
   if(point.Latitude && point.Longitude && icons[point.Type]) { // 确保Latitude和Longitude存在，以及Type对应的图标存在
       L.marker([point.Latitude, point.Longitude], {icon: icons[point.Type]}) // 使用对应Type的自定义图标
         .addTo(map)
-        .bindPopup(`Sample: ${point.Type}`);
+        .bindPopup(`Type: ${point.Type}<br>Latitude: ${point.Latitude}<br>Longitude: ${point.Longitude}`);
   }
         });
     })
