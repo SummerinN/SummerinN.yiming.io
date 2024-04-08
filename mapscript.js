@@ -67,28 +67,28 @@ fetch('web/test4.csv')
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28],
-            opacity: 0.5
+            opacity: 0.8
           }),
           'On Beach': L.icon({ 
             iconUrl: 'web/images/coast1.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28] ,
-            opacity: 0.5
+            opacity: 0.8
           }),
           'snow': L.icon({ 
             iconUrl: 'web/images/snow1.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28],
-            opacity: 0.5
+            opacity: 0.8
           }),
           'Water': L.icon({ 
             iconUrl: 'web/images/water1.png', 
             iconSize: [28, 28], 
             iconAnchor: [14, 28], 
             popupAnchor: [0, -28] ,
-            opacity: 0.5
+            opacity: 0.8
           })
       };
 //遍历解析后的数据
