@@ -207,6 +207,30 @@ nav.subnav a:hover {
     display: block;
 }
 
+.details {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background-color: rgba(32, 31, 31, 0.5);
+    padding: 20px;
+}
+
+.details.active {
+    display: block;
+}
+
+.Projects {
+    cursor: pointer;
+    margin: 20px;
+    flex: 1;
+}
+
+.details.open {
+    max-height: 500px; /* 调整这个值以适应内容的高度 */
+    overflow-y: auto; /* 添加滚动条 */
+}
+
 h3 {
     margin-top: 5%;
     margin-bottom: 5%;
