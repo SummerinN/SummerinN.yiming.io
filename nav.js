@@ -10,16 +10,19 @@ function showContent(sectionId) {
 }
 
 document.querySelectorAll('.Projects').forEach(function(project) {
-    project.addEventListener('click', function() {
-        var details = this.querySelector('.details');
-        if (details.style.display === 'none') {
-            details.style.display = 'block';
-            details.classList.add('open');
-        } else {
-            details.classList.remove('open');
-            setTimeout(function() {
-                details.style.display = 'none';
-            }, 500); // 等待动画完成
+    project.addEventListener('click', function(event) {
+        // 检查点击事件是否发生在.details区块或其子元素上
+        if (!event.target.closest('.details')) {
+            var details = this.querySelector('.details');
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                details.classList.add('open');
+            } else {
+                details.classList.remove('open');
+                setTimeout(function() {
+                    details.style.display = 'none';
+                }, 500); // 等待动画完成
+            }
         }
     });
 });
