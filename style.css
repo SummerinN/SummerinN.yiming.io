@@ -144,8 +144,8 @@ nav a:hover {
     height: 50%;
     width: 12%;
     position: fixed;
-    margin-top: 5%;
-    margin-left: 3%;
+    margin-top: 10%;
+    margin-left: 5%;
 }
 
 nav.subnav a {
@@ -182,7 +182,7 @@ nav.subnav a:hover {
 /* Add more styling as needed */
 
 .content-section {
-    width: 80%; /* 调整为适当的宽度 */
+    width: 75%; /* 调整为适当的宽度 */
     height: max-content;
     margin-left: auto; /* 使用 auto 将左边距设置为自动，使其右侧贴近窗口右边界 */
     box-sizing: border-box;
