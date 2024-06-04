@@ -310,8 +310,8 @@ img {
 }
 
 .cover {
-    max-width: 20%;
-    max-height: 15%px;
+    width: 20vh;
+    height: 15vh;
     object-fit: cover;
 }
 
