@@ -67,7 +67,7 @@ h5{
 
 .navbar {
     height: 70%;
-    width: 13%;
+    width: 10%;
     position: fixed;
     margin-top: 0%;
     margin-left: 3%;
@@ -133,7 +133,7 @@ nav a:hover {
 
 .subnav {
     height: 50%;
-    width: 23%;
+    width: 12%;
     position: fixed;
     margin-top: 5%;
     margin-left: 5%;
