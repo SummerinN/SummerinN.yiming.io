@@ -93,9 +93,17 @@ nav ul {
     padding: 0;
 }
 
-nav li {
+nav li.legend{
     flex: 0 0 50%; /* 每个li占据父容器的50%宽度 */
     height: 33.33%;
+    box-sizing: border-box; /* 包含padding和border在内计算宽度 */
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+nav li.list{
+    flex: 0 0 100%; /* 每个li占据父容器的50%宽度 */
+    height: 15%;
     box-sizing: border-box; /* 包含padding和border在内计算宽度 */
     margin-top: 7px;
     font-size: 14px;
