@@ -1,0 +1,314 @@
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+h1{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0%;
+}
+
+h5{
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0%;
+}
+
+#cn{
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(198, 198,195) 0%, rgb(208, 208,205) 50%, rgb(218,218,216) 72%, rgb(198, 198,195) 100%);
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(76,76,72, 1) 0%, rgba(97,97,90, 1) 50%, rgba(132, 131, 126, 1) 72%, rgba(91, 90, 89, 1) 100%);
+    animation: fadeInBackground 2s forwards;
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 1; /* Fully visible top layer */
+    }
+    to {
+        opacity: 0; /* Fully transparent top layer */
+    }
+}
+
+.background1 {    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: linear-gradient(to bottom, rgba(76,76,72, 1) 0%, rgba(97,97,90, 1) 50%, rgba(132, 131, 126, 1) 72%, rgba(91, 90, 89, 1) 100%);
+}
+
+.navbar {
+    height: 70%;
+    width: 13%;
+    position: fixed;
+    margin-top: 0%;
+    margin-left: 3%;
+    font-family:  'Fira Sans', sans-serif;
+    font-weight: 400;
+}
+
+.navbar h1 {
+    color: rgba(28, 19, 19, 1.0);
+    text-align: left;
+    font-size: 23px;
+}
+
+.bar0 {
+    margin-top: 40%;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    flex: 0 0 50%; /* 每个li占据父容器的50%宽度 */
+    height: 33.33%;
+    box-sizing: border-box; /* 包含padding和border在内计算宽度 */
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+nav a {
+    width: 70%;
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    color: rgb(139, 9, 0);
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(234, 236, 231, 0.2);
+}
+
+#bar1 {
+    color: rgb(218, 255, 144);
+}
+
+.subnavsec {
+    display: block;
+    margin-left: 12%;
+    margin-top: 0%;
+    padding: 2%;
+    width: 8%;
+    box-sizing: border-box;
+    font-family:  'Fira Sans', sans-serif;
+    font-weight: 400;
+    text-shadow: -1px 0px 5px black;
+
+}
+
+.subnav {
+    height: 50%;
+    width: 23%;
+    position: fixed;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+nav.subnav a {
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: rgb(171, 208, 96);}
+  
+nav.subnav a:hover {
+    background-color: rgba(234, 236, 231, 0.1);
+}
+
+
+.contact-info {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    position: fixed;
+    font-size: 16px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(28, 19, 19, 0.7);
+    margin-left: 3%;
+    width: 10%; /* Adjust the width based on your design */
+}
+
+#CI{
+    font-weight: 700;
+}
+
+#subtitle {
+    color: rgba(28, 19, 19, 1.0);
+}
+/* Add more styling as needed */
+
+.content-section {
+    width: 60%; /* 调整为适当的宽度 */
+    height: max-content;
+    margin-left: auto; /* 使用 auto 将左边距设置为自动，使其右侧贴近窗口右边界 */
+    box-sizing: border-box;
+    position: relative;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+}
+
+
+.details {
+    max-height: 400px;
+    transition: max-height 0.5s ease-out;
+    background-color: rgba(32, 31, 31, 0.5);
+    padding: 20px;
+    overflow-y: auto; /* 添加滚动条 */
+}
+
+.Projects {
+    cursor: pointer;
+    margin: 20px;
+    flex: 1;
+}
+
+h3 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: rgb(246, 250, 251);
+    font-size: 28px;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+}
+
+#video1 {
+    height: 60vh;
+    width: 100vh;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    position: relative;
+}
+
+.content-item p {
+    position: relative; /* 或其他定位方式 */
+  }
+
+.description {
+    color: rgba(255, 255, 255, 0.7);
+    width: 90%;
+}
+
+.link {
+    color: rgb(211, 228, 177);
+}
+
+.welcome{
+    color: rgba(255, 255, 255, 0.3);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    font-size: 100px;
+    line-height: 125px;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(78, 147, 59, 0.1);
+    margin-top: 0%;
+}
+
+.container{
+    color: rgba(243, 255, 193, 0.6);
+    width: 97%;
+    height: 30%;
+    position: fixed;
+    display: block;
+    margin-right: 3%;
+    text-align: right;
+    font-size: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    font-size: 100px;
+}
+
+.aboutme{
+    color: rgba(0, 0, 0, 1.0);
+    width: 40%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 30%;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.aboutme1{
+    color: rgba(0, 0, 0, 1.0);
+    width: 40%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    margin-top: 30%;
+    margin-left: 30%;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h4 {
+    margin-top: 0%;
+    margin-bottom: 5%;
+    color: rgba(28, 19, 19, 1.0);
+    font-size: 28px;
+}
+
+#laozi{
+    display: block;
+    width: 50%;
+    height: auto;
+    position: absolute;
+    margin-top: 10%;
+}
+
+
+img {
+    max-width: 95vh;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    height: auto;
+    display: block;
+}
+
+#text1{
+    color: rgb(18, 18, 179);
+}
+
+#text2{
+    color: rgb(82, 18, 179);
+}
+
+#text3{
+    color: rgb(9, 92, 140);
+}
