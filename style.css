@@ -309,6 +309,12 @@ img {
     color: rgb(82, 18, 179);
 }
 
+.cover {
+    max-width: 20%;
+    max-height: 15%px;
+    object-fit: cover;
+}
+
 #text3{
     color: rgb(9, 92, 140);
 }
