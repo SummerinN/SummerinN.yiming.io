@@ -310,8 +310,8 @@ img {
 }
 
 .cover {
-    width: 40vh;
-    height: 25vh;
+    width: 50vh;
+    height: 35vh;
     object-fit: cover;
 }
 
