@@ -145,16 +145,17 @@ nav a:hover {
     height: 50%;
     width: 12%;
     position: fixed;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-left: 3%;
 }
 
 nav.subnav a {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     text-decoration: none;
     color: rgb(171, 208, 96);
 }
+
   
 nav.subnav a:hover {
     background-color: rgba(234, 236, 231, 0.1);
