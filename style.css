@@ -17,7 +17,7 @@ h1{
 h5{
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 24px;
     margin: 0%;
     color: rgba(238, 219, 219, 1.0);
 }
@@ -79,7 +79,7 @@ h5{
 .navbar h1 {
     color: rgba(238, 219, 219, 1.0);
     text-align: left;
-    font-size: 23px;
+    font-size: 24px;
 }
 
 .bar0 {
@@ -125,6 +125,7 @@ nav a:hover {
 
 #bar1 {
     color: rgb(218, 255, 144);
+    font-size: 24px;
 }
 
 .subnavsec {
