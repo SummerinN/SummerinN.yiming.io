@@ -83,7 +83,7 @@ h5{
 }
 
 .bar0 {
-    margin-top: 40%;
+    margin-top: 45%;
 }
 
 nav ul {
@@ -102,10 +102,10 @@ nav li.legend{
 }
 
 nav li.list{
-    flex: 0 0 100%; /* 每个li占据父容器的50%宽度 */
+    flex: 0 0 100%;
     height: 15%;
-    box-sizing: border-box; /* 包含padding和border在内计算宽度 */
-    margin-top: 7px;
+    box-sizing: border-box;
+    margin-top: 30px;
     font-size: 14px;
 }
 
