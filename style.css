@@ -125,7 +125,11 @@ nav a:hover {
 
 #bar1 {
     color: rgb(218, 255, 144);
-    font-size: 24px;
+    font-size: 16px;
+}
+
+.list{
+    color: rgb(211, 228, 177);
 }
 
 .subnavsec {
