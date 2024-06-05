@@ -222,6 +222,7 @@ nav.subnav a:hover {
 h3 {
     margin-top: 5%;
     margin-bottom: 5%;
+    margin-left:5%;
     color: rgb(246, 250, 251);
     font-size: 28px;
     font-family: 'Fira Sans', sans-serif;
@@ -249,6 +250,7 @@ h3 {
 
 .link {
     color: rgb(211, 228, 177);
+    line-height: 1.5;
 }
 
 .welcome{
