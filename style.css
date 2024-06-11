@@ -93,7 +93,7 @@ nav li.legend{
     flex: 0 0 50%; /* 每个li占据父容器的50%宽度 */
     height: 33.33%;
     box-sizing: border-box; /* 包含padding和border在内计算宽度 */
-    margin-top: 7px;
+    margin-bottom: 3%;
     font-size: 14px;
 }
 
@@ -108,7 +108,7 @@ nav li.list{
 nav a {
     text-decoration: none;
     display: block;
-    padding-top: 10px;
+    padding-top: 0px;
     color: rgb(139, 9, 0);
     background-color: rgba(255, 255, 255, 0);
     transition: background-color 0.3s;
@@ -122,6 +122,12 @@ nav a:hover {
 #bar1 {
     color: rgb(218, 255, 144);
     font-size: 14px;
+    padding-bottom: 25%;
+}
+
+#bar2 {
+    color: rgb(211, 228, 177);
+    font-size: 15px;
     padding-bottom: 25%;
 }
 
@@ -155,7 +161,6 @@ nav.subnav a {
     text-decoration: none;
     color: rgb(171, 208, 96);
 }
-
   
 nav.subnav a:hover {
     background-color: rgba(234, 236, 231, 0.1);
@@ -220,11 +225,11 @@ nav.subnav a:hover {
 }
 
 h3 {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left:5%;
+    margin-left: 5%;
+    margin-top: 0%;
+    margin-bottom: 1%;
     color: rgb(246, 250, 251);
-    font-size: 28px;
+    font-size: 24px;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 600;
 }
@@ -249,9 +254,8 @@ h3 {
 }
 
 .link {
-    color: rgb(211, 228, 177);
-    line-height: 1.5;
     margin-left: 5%;
+    color: rgb(211, 228, 177);
 }
 
 .welcome{
@@ -320,8 +324,8 @@ h4 {
 img {
     min-width: 90%;
     max-width: 100%;
-    margin-top: 6%;
-    margin-bottom: 6%;
+    margin-top: 3%;
+    margin-bottom: 0%;
     height: auto;
     display: block;
 }
@@ -335,8 +339,10 @@ img {
 }
 
 .cover {
-    width: 50vh;
-    height: 35vh;
+    width: 20%;
+    height: 25vh;
+    margin-left: 5%;
+    margin-bottom: 2%;
     object-fit: cover;
 }
 
