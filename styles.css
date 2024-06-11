@@ -28,45 +28,6 @@ h5{
     font-weight: 400;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgb(198, 198,195) 0%, rgb(208, 208,205) 50%, rgb(218,218,216) 72%, rgb(198, 198,195) 100%);
-}
-
-.background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(76,76,72, 1) 0%, rgba(97,97,90, 1) 50%, rgba(132, 131, 126, 1) 72%, rgba(91, 90, 89, 1) 100%);
-    animation: fadeInBackground 2s forwards;
-}
-
-@keyframes fadeInBackground {
-    from {
-        opacity: 1; /* Fully visible top layer */
-    }
-    to {
-        opacity: 0; /* Fully transparent top layer */
-    }
-}
-
-.background1 {    
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background: linear-gradient(to bottom, rgba(76,76,72, 1) 0%, rgba(97,97,90, 1) 50%, rgba(132, 131, 126, 1) 72%, rgba(91, 90, 89, 1) 100%);
-}
-
 .navbar {
     height: 70%;
     width: 12%;
