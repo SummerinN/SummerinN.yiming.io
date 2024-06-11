@@ -215,10 +215,6 @@ nav.subnav a:hover {
     font-weight: 400;
 }
 
-.content-section {
-    display: none;
-}
-
 .content-section.active {
     display: block;
 }
