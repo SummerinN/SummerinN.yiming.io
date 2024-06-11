@@ -163,7 +163,8 @@ nav.subnav a {
     margin-bottom: 0px;
     text-decoration: none;
     color: rgb(171, 208, 96);
-  
+}
+    
 nav.subnav a:hover {
     background-color: rgba(234, 236, 231, 0.1);
 }
