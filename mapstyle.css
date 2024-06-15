@@ -1,8 +1,4 @@
 @font-face{
-    font-family: 'calibri';
-    src: url('calibri.ttf');
-}
-@font-face{
     font-family: 'calibrib';
     src: url('calibrib.ttf');
 }
@@ -18,8 +14,9 @@ body{
 }
 
 #map { 
-    flex: 7;
+    flex: 4;
     height: 100vh;
+    width: 50vh;
     border:  5px  solid cornflowerblue;
     background-color: transparent !important;
 }
@@ -27,6 +24,8 @@ body{
 .title{
     display: block;
     font-family: 'calibrib';
+    padding-left: 20px;
+    padding-bottom: 20px;
 }
 
 .sidebar{
@@ -41,18 +40,16 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: 'calibri';
-}
-
-.IMG{
-    height: 5%;
+    font-size: 14px;
 }
 
 .imglegend{
-    width: 25%;
+    width: 15%;
 }
 
 h1{
-    font-size: 28px;
+    font-size: 32px;
+    color: rgb(5, 0, 96);
     font-display: center;
     margin-left: 20%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
