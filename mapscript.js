@@ -73,23 +73,23 @@ fetch('web/test4.csv')
             }),
             'On Beach': L.icon({ 
                 iconUrl: 'web/images/coast1.png', 
-                iconSize: [48, 48], 
-                iconAnchor: [24, 48], 
-                popupAnchor: [0, -48],
+                iconSize: [38, 38], 
+                iconAnchor: [19, 38], 
+                popupAnchor: [0, -38],
                 opacity: 0.8
             }),
             'snow': L.icon({ 
                 iconUrl: 'web/images/snow1.png', 
-                iconSize: [48, 48], 
-                iconAnchor: [24, 48], 
-                popupAnchor: [0, -48],
+                iconSize: [38, 38], 
+                iconAnchor: [19, 38], 
+                popupAnchor: [0, -38],
                 opacity: 0.8
             }),
             'Water': L.icon({ 
                 iconUrl: 'web/images/water1.png', 
-                iconSize: [48, 48], 
-                iconAnchor: [24, 48], 
-                popupAnchor: [0, -48],
+                iconSize: [38, 38], 
+                iconAnchor: [19, 38], 
+                popupAnchor: [0, -38],
                 opacity: 0.8
             })
         };
