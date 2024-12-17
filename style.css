@@ -300,6 +300,7 @@ img {
     margin-bottom: 0%;
     height: auto;
     display: block;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
 }
 
 #text1{
@@ -312,7 +313,7 @@ img {
 
 .cover {
     width: 20%;
-    height: 25vh;
+    height: 30vh;
     margin-left: 5%;
     margin-bottom: 2%;
     margin-top: 0%;
