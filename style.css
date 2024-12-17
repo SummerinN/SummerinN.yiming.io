@@ -173,7 +173,7 @@ nav.subnav a:hover {
     margin-left: auto; /* 使用 auto 将左边距设置为自动，使其右侧贴近窗口右边界 */
     box-sizing: border-box;
     position: relative;
-    padding: 20px;
+    padding: 10px;
     height: 100vh;
     overflow-y: auto;
     font-family: 'Fira Sans', sans-serif;
@@ -185,13 +185,14 @@ nav.subnav a:hover {
     max-height: 550px;
     transition: max-height 0.5s ease-out;
     background-color: rgba(32, 31, 31, 0.5);
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     overflow-y: auto; /* 添加滚动条 */
 }
 
 .Projects {
     cursor: pointer;
-    margin: 20px;
+    margin: 10px;
     flex: 1;
 }
 
