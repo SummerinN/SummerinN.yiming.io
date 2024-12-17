@@ -315,6 +315,7 @@ img {
     height: 25vh;
     margin-left: 5%;
     margin-bottom: 2%;
+    margin-top: 0%;
     object-fit: cover;
 }
 
