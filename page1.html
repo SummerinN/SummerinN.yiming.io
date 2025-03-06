@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWeb Main page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background1"></div>
+    <div class="navbar">
+        <h1>YIMING JIANG
+            <br>
+            DESIGNER'S 
+            <br>
+            WEBHOUSE
+        </h1>
+        <h5>
+            设计师/姜一鸣
+        </h5>
+        <div>
+            <nav class="bar0">
+                <ul>
+                    <li ><a href="index.html"  id="bar1">About Me <br><span id="cn">关于</span>  </a></li>
+                    <li ><a href="page2.html"  id="bar1">My Works <br><span id="cn">作品展览</span>  </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>    
+ 
+
+    <section class="subnavsec">    
+        <nav class="subnav">
+            <ul>
+                <li onclick="showContent('section1')"><a href="#类别1">Design Research Projects <br> 设计研究</a></li>
+                <li onclick="showContent('section2')"><a href="#类别2">Personal Design Projects <br> 个人作品</a></li>
+                <li onclick="showContent('section3')"><a href="#类别3">Working Experience and Collaboration <br> 工作经验和合作项目 </a></li>
+                <li onclick="showContent('section4')"><a href="#类别4">Other Works <br> 其他作品 </a></li>
+            </ul>
+
+            <!-- 在这里添加其他作品的链接 -->
+          </nav>
+    </section>
+
+    <div id="content">
+        <div class="content-section" id="section1">
+            <div class="Projects" id="DV">
+                <img src="web/images/LDS.jpg" class="cover" alt="COVER1">
+                <h3>Life, Data, and Story</h3>
+                <div class="details" style="display:none;">
+                <p class="description"> This is a summary of my research on data visualization for the Unit 2 Course Visualization Tools, Datasets, and Data Stories. I will explain my design method and practice through the process of “life to data, data to story”, starting with a definition of my design work:
+                    <br><br>
+                    “From the data given in words and figures, a way has to be found to extract the essential facts and put them into picture form.” (Neurath, 2017)
+                </p>
+                    <h3>From Life to Data</h3>
+                <p class="description">
+                        Quantitative data is measurable, based on numbers and values, and capable of statistical analysis. It is commonly used to conduct research on a certain object in data visualization design research. In my two practices, Data-Selfie and London Soundscape, I collected data of various factors about daily routine and the internet usage in London. 
+                    <img src="web/images/lds1.png" alt="LDS1">
+                        In the research on the subjects, designers encourage audience to engage in self-disclosure through research methods including diary studies, data-selfie, and autoethnography. Furtherly, by participating as interviewee and reflecting on their practices, designers can try mitigating the ambiguities in data interpretation.
+                    <img src="web/images/lds2.png" alt="LDS2">
+                        Designers also must deal with qualitative data to gain a deeper understanding of audience's behaviors and experiences and to explore their psychological dynamics. In my practice of London Soundscape, I used 'Mental Mapping' research method to record one's cognitive memory of the environment throughout their journey, revealing unspoken subconscious elements.  
+                </p>
+                    <h3>Visualize Data</h3>
+                <p class="description">
+                    Charts integrate elements in datasets and transform data into comprehensible symbols, supporting effective visual communication. Edward Tufte emphasizes in The Visual Display of Quantitative Information (1983) that the choice and design of symbols in charts are critical to accurately and clearly presenting complex information.
+                <img src="web/images/lds3.png" alt="LDS3">
+                    For instance, G. J. Whitrow discusses in his book Time in History: Views of Time from Prehistory to the Present Day (1989), various figures have been employed throughout history to record the flow of time, where the choice of symbols used in these charts is largely influenced by the perceived scale of time.
+                <img src="web/images/coding1.jpg" alt="LDS4">
+                    My workflow starts from sketching the visual elements, then moves to digital design tools. The sketches introduce novel ways of thinking and leads to designs that are uniquely customized for the specific type of data problems we are working with. (Lupi G. 2017) Then I use digital design tools like Microsoft Excel, Google Sheet, RAWGraphs, Tableau to quicky test the graphics towards the expected outcome.
+                <img src="web/images/coding2.png" alt="LDS5">
+                    The design of interactive data visualizations follows a similar process. First try the effect on Figma, and then write the program through JavaScript, Python and R language. The website's backend database supports real-time updates of data, which is particularly important for work that pursues efficiency, like the human resource management system. It also places higher requirements on the readability of the data dashboard.
+                <img src="web/images/model.jpg" alt="LDS6">
+                    Visualizing data in 3D modeling enhances performance in analyzing and presenting complex data. After 2D sketches, diagrams can be efficiently transformed into detailed 3D blueprints using software like Rhino and Blender. This method is discussed in Billie Faircloth's article in Architectural Design (2017), highlighting its frequent application in architectural practices. Furthermore, these models can be converted into physical forms using 3D printing to enrich the sensory experience of the data.
+                </p>
+                    <h3>From Data to Story</h3>
+                <p class="description">
+                    Designers refer to narrative theory to match data visualization methods to usage scenarios, for the universal applicability of narratives: "There are countless forms of narrative in the world... First of all, narrative starts with the very history of mankind; there is not, there has never been anywhere, any people without narrative" (Barthes & Duisit, 1975, p. 237). 
+                <img src="web/images/narrative1.png" alt="LDS7">
+                    I summarize the narrative methodologies of several influential data visualization designers in Design Data Narrative, and explain how they hold true from a narratological perspective. I also demonstrated how I translated the theories into tangible influence in my projects, Nigeria`s Decarbonization Strategy Advocacy, and HR Management System Data Dashboard Iteration.
+                <img src="web/images/audience3.png" alt="LDS8">
+                    Although narrative is universal, story is not. People `s preferences are diverse and must be differentiated when designing surveys. For example, my above two projects were both related to decision-making, but were designed in very different ways.
+                <img src="web/images/audience.png" alt="LDS9">
+                    Firstly, data visualization on different media has different advantages. And the power of the medium can be more important than the content itself - as McLuhan M. pointed out in Understanding Media. While good design is considered both attractive and accurate, trade-offs across multiple design decision dimensions are often unavoidable.
+                <img src="web/images/gestalt.jpg" alt="LDS10">
+                    Corresponding to the medium, data visualization also differs depending on the audience. Methodologies from common design fields also apply to data visualization, such as the Visual Gestalt theory. Designers need to consider the effectiveness of visual communication to avoid the problems pointed out by Huff, D. in How to lie with statistics. (2023)
+                <img src="web/images/culture.png" alt="LDS11">
+                    Then, Cultural context poses another challenge for data visualization. As is pointed out in the article Data Visualization for Audiences in Low & Middle-Income Countries (Tricia Aung, 2019), people with different perceptions of concepts such as humanity, science, statistic, data, etc. have caused troubles to designers. In my essay assignment: Finding Humanism from the Easternmost, I reviewed on the data visualization works of a Japanese Designer to see how the context of local culture molded the experience of the natives. And in my work, Fear and Expectation, I demonstrated the changing public perception of artificial intelligence. 
+                </p>
+                <h3>Reference List</h3>
+                <p class="description">
+Billie Faircloth’s "Plasticity: The Architectural Tool of Material Computation" in Architectural Design, 2017 <br>
+Huff, D., 2023. How to lie with statistics. Penguin UK. <br>
+Hanington, Bruce, and Martin B. (2012) Universal Methods of Design: 100 Ways to Research Complex Problems, Develop Innovative Ideas, and Design Effective Solutions, Quarto Publishing Group USA, <br>
+Levin, G. and Brain, T., 2021. Code as creative medium: a handbook for computational art and design. MIT Press. <br>
+Landais, L.L., Jelsma, J.G.M., Dotinga, I.R. et al. Office workers' perspectives on physical activity and sedentary behaviour: a qualitative study. BMC Public Health 22, 621 (2022). https://doi.org/10.1186/s12889-022-13024-z <br>
+Lupi G., 2017, Data Humanism: The Revolutionary Future of Data Visualization, https://giorgialupi.com/data-humanism-my-manifesto-for-a-new-data-wold <br>
+McLuhan, M., 1994. Understanding media: The extensions of man. MIT press. <br>
+Neurath, O., 2017. Pictorial statistics following the Vienna method. ARTMargins, 6(1), pp.108-118. <br>
+Reference: Interactive Art & Computational Design, Spring 2014 An Advanced Studio in Arts Engineering and Freestyle Computing // Prof. Golan Levin, Carnegie Mellon University <br>
+Whitrow, G.J., 1989. Time in history: Views of time from prehistory to the present day. Oxford University Press, USA. <br>
+                </p>
+                </div>
+            </div>
+            
+            <div class="Projects" id="VCED">
+                <img src="web/images/DM.jpg" class="cover" alt="DM">
+                <h3>Visualize the Complexity of Everyday Decisions</h3>
+                <div class="details" style="display:none;">
+                    <p class="description"> This is the proposal of my Final Major Project for the Master Degree. Currently it is my personal project, but please feel free to contact me if you have interest.
+                    </p>
+                <h3>Introduction: Complexity in Daily Decision Making</h3>
+                    <p class="description">
+                    <img src="web/images/fmp1.png" alt="VCED1">
+                    Information technology continues to provide opportunities to alter the decision-making behavior of individuals.[1] When people have gigabytes of data accessed at their fingertips, many researches and studies negatively shows that it s harder for people to make rational decisions.[2] A research conducted by Barclays Plan & Invest in partnership with researchers at UCL reveals that Brits spend a staggering 148 minutes each day deliberating over everyday decisions - from what to wear or eat, what to watch on TV or how to tackle their to-do list. [3] 
+                    <img src="web/images/fmp2.jpg" alt="VCED2">
+                    Despite the ubiquity of visualizations in research and practice, there is no comprehensive understanding of the potential and limits of information visualization for decision-making, where its ability to improve decision accuracy and quality has been overwhelmingly confirmed. [4] 
+                    <img src="web/images/fmp3.jpg" alt="VCED3">
+                    Therefore, I want to try develop a systematic method of data visualization as a skill or a tool to help people estimate the complexity of decisions they encounter in daily lives. 
+                   </p>
+                <h3>Audience and Outcome</h3>
+                    <img src="web/images/fmp5.jpg" alt="VCED4">
+                <p class="description">
+                Describe the data visualization method I am looking for from two perspectives:
+                <br> - This project focus on the application of data visualization method in everyday situations. 
+                <br> - The data of complexity itself stands as the topic in the data visualization output, which is established for the audience to explore the  micro narrative in their everyday life.
+                <img src="web/images/fmp4.jpg" alt="VCED5">
+                I will conduct secondary research, questionnaire, interview and cognitive mapping research to get enough knowledge to organize the design methodology steps by steps:
+                <br>- Decide on a certain scenario that fits the theme and is convenient for me to practice designing.
+                <br>- Define the index (or indexes) to describe the experience of complexity in decision making.
+                <br>- Scale the variables that compose the index and connect them with theoretical basis.
+                <br>- Organize the visual representation of the index on charts and other creative forms.
+                <br>
+                After making these decisions, I will have some design prototype to proceed ----  to conduct advanced research methods of cultural probes and design workshops.
+                <img src="web/images/fmp6.png" alt="VCED6">
+                The audience would be: people living in a modern society who have no professional knowledge of the professional areas involved in this topic, such as business decision-making, and who (may) encounter difficulties in daily life decision-making. In terms of situations, the audience group might focus on university students.
+                </p>
+                </div>
+            </div>
+
+                <div class="Projects" id="PD">
+                <img src="web/images/life.png" class="cover" alt="COVER3">
+                <h3>Subject Perception</h3>
+                <div class="details" style="display:none;">
+                <p class="link"> DESIGN RESEARCH METHODS / 2024 </p>
+                <p class="description"> This design project contains practicing the research method of Data Selfie and Sensory Mapping, and is part of Postgraduate Unit Data visualization Tools, Datasets and Data Stories.
+                </p>
+                <p class="description">
+                    For groups such as urban office workers and students who have high life pressure, it is difficult for them to be conscious of one`s regulation (quantitatively recorded) information. (Landais, L.L. et al., 2022) In this practice of mine, I collected data of various factors that might affect people`s work efficiency : weather, time until the next deadline, commuting status, coffee, office environment, etc. 
+                    <br>
+                    <img src="web/images/life1.png" alt="Life1">
+                    Data-Selfie records one`s own data retains more subjectivity and privacy and is perfect for observing preferences of a targeted group. Designers encourage audience to engage in self-disclosure, including diary studies, data-selfie, autoethnography and other research methods. Here I took myself as object, worked with data of my browsing history to see my energy routine throughout a day, to avoid the difference in the interpretation of data that poststructuralists concerns.                     
+                    <br>
+                    <img src="web/images/life2.png" alt="Life2">
+                    But to describe some other scenarios of life, designers must deal with qualitative data. According to Tega Brain and Golan Levin (2021), databases are amassed from our digital communications, search histories, transactions, step counts, sleep patterns, and journeys.                    
+                    <img src="web/images/life3.png" alt="Life3">
+                    For this, I practiced 'Mental Mapping' research to record one's cognitive memory of the environment throughout their journey, revealing unspoken subconscious elements. Such method helps designers to gain a deeper understanding of user behaviors and experiences and to explore their psychological dynamics.
+                    <br><br>
+                    I recorded different sounds from a scene and resolved them into sound source data. By comparing and relating it to one's description of the experience, I was able to better understand the weight of audio elements that might potentially be , immersive, overlooked or unusual. 
+                    <img src="web/images/life4.jpg" alt="Life4">
+                    The outcome charts reconstructs the sound source data with visual languages to restore the sonic environment in a way that is easy to express and communicate. The subjective experience from 3 different personality types is distinguished based on the data of a 5-Point Likert Scale.
+                </p>
+                </div>
+            </div>
+
+            <div class="Projects" id="SP">
+                <img src="web/images/DDN.jpg" class="cover" alt="COVER4">
+                <h3> DESIGN DATA NARRATIVE </h3>
+                <div class="details" style="display:none;">
+             <p class="link"> DESIGN RESEARCH / NARRATIVE RESEARCH / 2024 </p>
+                <p class="description"> 
+                    Why finding narratives from datasets? 
+                <br><br>
+                    "There are countless forms of narrative in the world... First of all, narrative starts with the very history of mankind; there is not, there has never been anywhere, any people without narrative" (Barthes & Duisit, 1975, p. 237). 
+                <img src="web/images/ddn1.png" alt="DDN1">
+                    Datasets are the collection of symbolic information on things, while the ubiquity of narrative provides a universal interpretation method for datasets. Designers refer to narratology and semiotics as theoretical base, to match data visualization functions to usage scenarios. The above categorization construct the usage scenarios of data visualization narratives from designers Hans-Wihelm E. and Scott B.            
+                <img src="web/images/ddn2.jpg" alt="DDN2">
+                    A data set may contain many samples, variables, and sets. They are visualized as a shape in a chart, like the plot of a story. In the illustration below, a combination of numbers and symbols tells a complete story to the audience, such as:
+                <br><br>
+                    “This video got 100 likes.”
+                <br><br>
+                    ……and if there are 100 videos of the creator, the data of likes can form a plot from the dataset, for example:
+                <br><br>
+                    "A creator who works tirelessly, receiving more and more likes within a year."
+                <img src="web/images/ddn3.png" alt="DDN3">
+                    In practice, the situation can be more complicated, resulting in multiple interpretations and differences, such as this data event: 
+                <br><br>
+                    "The labor cost execution rate of company A in September"
+                <br><br>
+                     I met this problem during the iteration of an digital human resource data dashboard project. This data is a complex statistic that measures the implementation effect of the human management plan, but the original designer ignored the fact that in individual cases, this value would be greater than 100%, thus used the wrong chart.
+                <img src="web/images/ddn4.jpg" alt="DDN4">
+                    A plot is also a narrative of events, the emphasis falling on causality. The relationships between the data constitute the plot; they structure the conflict and resolution of the story, conveying to the reader the reality reflected in the dataset. In statistics, flow charts are widely used to express causality and correlation. 
+                <br><br>
+                    In the example on the right, I combined two vivid charts to create such a plot to transform the information of the data into persuasiveness: 
+                <br><br>
+                    "Nigeria's energy structure is very bad and has caused many deaths in the past.”
+                <img src="web/images/ddn5.png" alt="DDN5">
+                    For a specific story, the narrative structure and its intent depend on the needs. In the practice of the 'Nigeria Energy Transition Plan' data visualization, I employ the narrative structure of Cinderella to present the development plan for a better tomorrow to the investors, setting the stage for their participation. The chart depicts a group of people striving to improve their living conditions. Although they have achieved some initial results, they still face significant challenges. Therefore, now is the opportune moment for savvy investors to step in and make pivotal investments. 
+                <img src="web/images/ddn6.png" alt="DDN6">
+                    In the aforementioned project, I referred to psychological theories to help the narrative impress investors. According to attribution theory by Weiner, B. (1985), “......people tend to attribute their successes internally (to their own abilities or efforts), and their failures externally (to external factors beyond their control)......which could motivate them to continue supporting the project during tough times, believing that the core reasons for initial success remain unchanged.”
+                <img src="web/images/ddn7.png" alt="DDN7">
+                </p>
+                <h3> Reference </h3>
+                <p class="description"> 
+                Barthes, R. (1977) Image, Music, Text. Trans. Stephen Heath. New York: Hill and Wang.<br>
+                Berinato S. (2016) Visualizations That Really Work, Harvard Business Review<br>
+                Eckert H. W. (2022) Storytelling with data: gaining insights, developing strategy and taking corporate communications to a new level<br>
+                Forster, E.M. (1927). Aspects of the Novel. Harcourt Brace & Company.<br>
+                Weiner, B. (1985). "An Attributional Theory of Achievement Motivation and Emotion." Psychological Review, 92(4), 548-573.<br>
+                </p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="content-section" id="section2">
+            <div class="Projects" id="AI">
+                <img src="web/images/AI.png" class="cover" alt="AI">
+                <h3>Long-Term Trends in the Public Perception of Artificial Intelligence</h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> DATA VISUALIZATION / PERSONAL PROJECT / 2022 </p>
+                    <p class="description">This is a data visualization project, explaining the trends in public opinions, which had long been focus on the development of Artificial Intellegence.
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SuiFRChtVv8?autoplay=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </p>
+                    <p class="link"> 
+                    Watch on Youtube
+                    </p>
+                    <br>
+                    <p class="description">
+                    A data research report analyzed all the content related to AI in the New York Times over the past decades and counted the data of different fields, relevance, and attitudes.
+                    After reading the report, I extracted and collated these data and made several information charts based on them to intuitively see how the public (media) attitude changes.
+                    <br><br>
+                    The power of AI is obvious to all. Who knows when they will suddenly lose
+                    their jobs because of AI? And who is expecting AI to make life better?
+                    In any case, it is essential to pay attention.</p>
+                    <img src="web/images/article.png" alt="DV1img3">
+                    <p > 
+                        <a href="https://www.kaggle.com/datasets/saurabhshahane/public-perception-of-ai" class="link">Data Source from Kaggle</a>
+                    </p>
+                    <img src="web/images/article1.png" alt="DV1img4">
+                    <p class="description">Articles published by the New York Times between January
+                        1986 and May 2016—more than 3 million articles in total.
+                        more than 8000 paragraphs that mention AI over a thirty
+                        year period in total.
+                        Researchers evaluate the mood level of each article with a
+                        5-point Likert scale, and record the data in the dataset.
+                    </p>
+                    <p class="description">Posters in display <br>
+                        Data of reviews from different sections on the N.Y.T.
+                        <img src="web/images/DV1image1.jpg" alt="DV1img1">
+                        Data of reviews from different keyword indicators.
+                        <img src="web/images/DV1image2.jpg" alt="DV1img2">
+                        <br>
+                        The attitude of perception of the public has always been an interesting and
+                        valuable topic, both for researchers and viewers (even for the bystanders).
+                        Researchers can study on culture, society, media, and philosophy from the data, for
+                        topics such as what kind of events can affect people's attitudes towards what
+                        emotional direction. Observers can use the information to make business forecasts.
+                        And people who watch the activity can better understand themselves or just enjoy
+                        the happiness from empathy. 
+                    </p>
+        
+                    <img src="web/images/DV1image1.1.jpg" alt="DV1img1.1">
+                    <img src="web/images/DV1image2.1.jpg" alt="DV1img2.1">
+                    <img src="web/images/DV1image2.2.jpg" alt="DV1img2.2">
+                </div>
+            </div>
+
+            <div class="Projects" id="PA">
+                <img src="web/images/Ad1.jpg" class="cover" alt="PAimg1">
+                <h3>Plastics in Antarctica</h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> Data Visualization / PERSONAL PROJECT / 2024 </p>
+                    <br>
+                    <a href="test.html" class="link"> Web version </a>    
+                    <img src="web/images/output.png" alt="PAimg10">
+                    <p class="description">
+                    A series of outputs telling a story of who, when, where and how plastic waste reached to the antarctica and the southern ocean. In this online data visualization webpage, I practiced skills such as drawing maps through satellite image data and QGIS system, integrating various scattered research data to a high degree, so that users can easily understand the real situation of plastic pollution in Antarctica through the latest research.
+                    <img src="web/images/Map1.jpg" alt="PAimg2">
+                    Antarctica and the Southern Ocean are subject to increasing levels and diversity of human activities that may severely affect environmental, scientific and historic values within its marine and terrestrial ecosystems and cryosphere. 
+                    <img src="web/images/research2.png" alt="PAimg3">
+                    As an emerging research field, plastic pollution in Antarctica has not been fully studied and has received even less social attention. Therefore, based on the suggestions of scientists, I explore this topic to disseminate some valuable information to the public.
+                    <img src="web/images/Map2.jpg" alt="PAimg4">
+                    Extract information that is understandable from the literature reviews and original data, and visualize it in a vivid way.
+                    <img src="web/images/Stickers1.jpg" alt="PAimg5">
+                    </p>
+                </div>
+            </div>      
+
+            <div class="Projects" id="LR">
+                <img src="web/images/LM.png" class="cover" alt="LM">
+                <h3>Concept Design: Lumen Residents</h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> INFORMATION DESIGN / PERSONAL PROJECT / 2021 </p>
+                    <p class="description">
+                        A project of the visualization of the light environment in the cityof Shanghai, which contains a series of multiple-layer maps and aguidance book as a reference.
+                    <img src="web/images/LMimage2.jpg" alt="LMimg2">
+                        In 2050, Shanghai has become the largest city in east Asia,attracting hundreds of millions of foreigner to live in the city.They need to either buy new house or rent old house to live in.Under such circumstance,the light environment, as one of themost important aspect in evaluating living condition, shall have aclear and direct way to be presented to these people.
+                    <img src="web/images/LMimage1.JPG" alt="LMimg1">
+                    Following the light regulation guidebooks, I design these visualization concept in a booklet for foreigners to check out different light environments in the city.
+                    <img src="web/images/LMimage3.png" alt="LMimg3">
+                    The booklet categorizes the information by places. In addition, I also designed a series of maps to show information by different time periods in a day.
+                    <img src="web/images/LMimage5.jpg" alt="LMimg5">
+                    <img src="web/images/LMimage7.JPG" alt="LMimg7">
+                    <img src="web/images/LMimage6.jpg" alt="LMimg6">
+                </div>
+            </div>   
+
+            <div class="Projects" id="AK">
+                <img src="web/images/BD.png" class="cover" alt="BD">
+                <h3>Arranging Knowledge</h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> PRINTINGS / PERSONAL PROJECT / 2023 </p>
+                    <img src="web/images/test3.jpg" alt="BDimg1">
+                    <p class="description">
+                        ln this project, l redesigned the book"The Art of Game
+                        Design" to better its reading experience, and to make it betterunderstood by readers.Based on my interview and research, lfound the design defects of this book and improved them,and finally achieved the balance of functionality, beauty andrich knowledge content.
+                    <img src="web/images/BDimage1.png" alt="BDimg2">
+                    As someone who is always interested in game, l have experienced theuniqueness of design and aesthetics in games, and l have some
+                    understanding of game design of my own.Therefore, l want this bookto be more than just a guide book, to have the aesthetic feeling of thegood games. When reading or referring this book, I hope the designerscan feel that they are doing a special and meaningful work.
+                    <img src="web/images/BDimage2.png" alt="BDimg3">
+                    To truly understand game design, designersmust understand a complex network composed of creativity, psychology, art, technology andbusiness,and gradually establish a complex relationship system between designers, players,games, teams and customers in mind.
+                    <img src="web/images/test6.jpg" alt="BDimg4">
+                    <img src="web/images/test4.jpg" alt="BDimg5">
+                    *part of the illustrations were produced by Midjourney.
+                    </p>
+                </div>
+            </div>   
+
+        </div>
+
+        <div class="content-section" id="section3">
+            <div class="Projects" id="VCED">
+                <img src="web/images/imf1.png" class="cover" alt="IMFimg1">
+                <h3>Data Visualization for IMF 70th Anniversary </h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> Data Visualization / Design Cooperation / 2024 </p>
+                    <p class="description">
+                    A collaboration project between LCC Ma Design for Data Visualization with the International Money Fund.We designed a set of data visualization posters and a visual interactive installation for our partners' 70th anniversary conference this year.
+                    <br>
+                    <img src="web/images/imf2.png" alt="IMFimg2">
+                    These two posters respectively showcase "Trading Focus" and "Lending Instruments." One emphasizes the geographical shift in trading focus. Another focuses on the evolution of IMF lending instruments with various countries over the years, providing background on global economic history.
+                    <img src="web/images/imf3.png" alt="IMFimg3">
+                    We visualized the data of IMF’s commitments with partners over the 70 years through this interactive installation. It contains 24 accessible acrylic boards with figure of the  data in each 3-year time span. The data is engraved into relief by laser and is colored with stickers. The transparency of boards allow allows viewers to watch historical changes directly along time. Also, the Audience can take one board to read the information and explore more detailed knowledge by scanning the QR code.
+                    <img src="web/images/imf4.png" alt="IMFimg4">
+                    To have a clearer and deeper view of the dataset, we organized the data of each commitment into squares, and represented the variables with the geometric figures. All the commitments made with in a 3-years time span is collected on one map board as a chart, which is associated with world events during the certain period in the viewer's mind. 
+                    <img src="web/images/imf5.png" alt="IMFimg5">
+                    <img src="web/images/imf7.png" alt="IMFimg7">
+                </p>
+                </div>
+            </div>  
+
+            <div class="Projects" id="DHR">
+                <img src="web/images/frontpage.png" class="cover" alt="COVER1">
+                <h3>DHR Data Dashboard Iteration Project</h3>
+                <div class="details" style="display:none;">
+                <p class="link"> Data Visualization / Design Cooperation / 2024 </p>
+                <p class="description">
+                A collaboration project between LCC Ma Design for Data Visualization with the International Money Fund.We designed a set of data visualization posters and a visual interactive installation for our partners' 70th anniversary conference this year.
+                <br>
+                <img src="web/images/imf2.png" alt="IMFimg2">
+                These two posters respectively showcase "Trading Focus" and "Lending Instruments." One emphasizes the geographical shift in trading focus. Another focuses on the evolution of IMF lending instruments with various countries over the years, providing background on global economic history.
+                <img src="web/images/imf3.png" alt="IMFimg3">
+                We visualized the data of IMF's commitments with partners over the 70 years through this interactive installation. It contains 24 accessible acrylic boards with figure of the  data in each 3-year time span. The data is engraved into relief by laser and is colored with stickers. The transparency of boards allow allows viewers to watch historical changes directly along time. Also, the Audience can take one board to read the information and explore more detailed knowledge by scanning the QR code.
+                <img src="web/images/imf4.png" alt="IMFimg4">
+                To have a clearer and deeper view of the dataset, we organized the data of each commitment into squares, and represented the variables with the geometric figures. All the commitments made with in a 3-years time span is collected on one map board as a chart, which is associated with world events during the certain period in the viewer's mind. 
+                <img src="web/images/imf5.png" alt="IMFimg5">
+                <img src="web/images/imf7.png" alt="IMFimg7">
+            </p>
+                </div>
+            </div>
+
+            <div class="Projects" id="VCED">
+                <img src="web/images/BGimage1.png" class="cover" alt="BGD1">
+                <h3>Game Design: Set Fire to the Internet</h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> BOARD GAME / <a href="https://globalgamejam.org/users/rohan" class="link">COOPERATOR:ROHAN </a> / 2022 </p>
+                    <p class="description">
+                        This is a strategy card game designed by Game Designer Mr.Duan and me. People live in an information environment shaped by various media, which significantly influence them but often go unnoticed. Therefore, we wanted to tell a story about media and public opinions, and to provoke thought on the new media through gamified experience.
+                    <img src="web/images/BGimage2.jpg" alt="BGimg2">
+                        In this game, the two players act the role of Cyber Empress and the Witch, manipulate everything they could touch----online communities, opinion leaders, various media platforms, to gain support from the neitizens and dominate the whole internet. 
+                    <img src="web/images/BGimage3.png" alt="BGimg3">
+                        A set of game concludes 30+ different card illustration and a number of different tokens. Referencing from pokers, the graphic design represents 4 different types of media platforms, 4 different types of neitizens, 3 types of social influencers and 2 types of dictatorship with symbolic patterns. These elements are gradually connected and accumulated during the game, forming a rich and meaningful story.
+                    <img src="web/images/map2.png" alt="BGimg4">
+                    <img src="web/images/token1.jpg" alt="BGimg5">
+                    <img src="web/images/strategy4.png" alt="BGimg6">
+                    <img src="web/images/map5.jpg" alt="BGimg7">
+                    </p>
+                </div>
+            </div>
+
+                        <div class="Projects" id="VCED">
+                <img src="web/images/MES.jpg" class="cover" alt="MES">
+                <h3>Madagascar Endangered Species</h3>
+                <div class="details" style="display:none;">
+                    <p class="link"> INSTAGRAM / COOPERATION WITH BEYOND WORDS STUDIO / 2024 </p>
+                    <p class="description">
+                        We collaborated with Beyond Words Studio as a team of three on this one week project. Our goal is to spread information about the decline of species diversity in Madagascar through the Instagram platform.
+                    <img src="web/images/mes2.png" alt="MESimg1">
+                        We were inspired by the famous movie Madagascar (2005), which depicted a picture of the wild, wonderful, and vibrant natural environment. But little might the audience know: Out of the screen, many of the lovely creatures are facing severe survival situation due to the overexploitation and unsustainable agriculture. 
+                    <img src="web/images/mes1.png" alt="MESimg2">
+                        We took the concept of stamps, the classic travel souvenir, to convey an impressive sense of exotic wilderness.  In addition to this, we used the data on this postmark as a visual centerpiece to emphasize the urgent environmental situation represented.
+                    <img src="web/images/mes3.png" alt="MESimg3">
+                        We organized the data of endangered species in Madagascar, including: <br> Basic ecological situation of Madagascar Islands. <br> The data of General situation of endangered species in Madagascar. <br> Detailed data of 4 typical endangered species and the taxonomic groups they are from. <br> Comparison of the global average level with the situation in Madagascar.
+                    <img src="web/images/mes4.jpg" alt="MESimg4">
+                    </p>
+                </div>
+            </div>
+            
+        </div> 
+
+        <div class="content-section" id="section4">
+            <div class="Projects" id="VCED">
+                <h3>Others </h3>
+            <img src="web/images/Others4.jpg" alt="img03">
+            <p class="link"> GRADUATES DATA VISUALIZATION / UIC DESIGN CENTER / 2023 </p>
+            <img src="web/images/display.jpg" alt="img06">
+            <p class="link"> RESEARCH / Data Visualisation Research and Practices / 2024 </p>
+            <img src="web/images/Others3.jpg" alt="img01">
+            <p class="link"> EPIMETHEUS /GAME DESIGN PROJECT / TEAM WORK / 2022~2023 </p>
+            <img src="web/images/Others2.jpg" alt="img02">
+            <p class="link"> EPIMETHEUS / GAME DESIGN PROJECT / TEAM WORK / 2022~2023 </p>
+            <img src="web/images/Others5.jpg" alt="img04">
+            <p class="link"> PHOTOGRAPHY / PERSONAL WORK / 2021 </p>
+            <img src="web/images/Others8.png" alt="img06">
+            <p class="link"> PHOTOGRAPHY / PERSONAL WORK / 2020 </p>
+        </div> 
+
+    </div>
+
+    
+
+
+
+    <script src="nav.js"></script>
+
+    <div class="contact-info">
+        <div id="subtitle">
+            <p>Contact Information</p>
+        </div>
+        <p>y.jiang0220237@arts.ac.uk</p>       
+        <p>(+86) 13591604618</p>
+        <p>(+44) 7354 535980</p>
+    </div>
+
+</body>
+</html>

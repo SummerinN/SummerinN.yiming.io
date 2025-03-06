@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #232325;
+        }
+        #sidebar {
+            width: 20%;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 10px;
+            color:aliceblue;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            cursor: pointer; /* 设置鼠标样式为箭头 */
+            background-image: url('images/bgd.png'); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 控制图片的尺寸，确保覆盖整个区域 */
+            background-repeat: no-repeat; /* 确保图片不重复 */
+            background-position: center; /* 控制图片的位置，居中显示 */
+        }
+        #conversation-stats {
+            position: absolute;
+            top: 20px;
+            right: 30%;
+            background-color: rgba(211, 214, 225, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #charts {
+            width: 40%;
+            height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+            padding-top: 5%;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: #232325;
+            background-image: url('web/images/bgd.png'); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 控制图片的尺寸，确保覆盖整个区域 */
+            background-repeat: no-repeat; /* 确保图片不重复 */
+            background-position: center; /* 控制图片的位置，居中显示 */
+        }
+        #content {
+    width: 40%;
+    position: relative;
+    background-color: #34363a;
+    color: aliceblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* 改为 flex-start 以确保内容从顶部开始对齐 */
+    overflow-y: auto; /* 修改 overflow 为 auto，以允许内容垂直滚动 */
+}
+#conversation-content {
+    width: 100%;
+    position: relative;
+    background-color: #34363a;
+    color: aliceblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 改为 flex-start 以防止内容居中导致布局问题 */
+    justify-content: flex-start; /* 改为 flex-start，确保内容从顶部开始排列 */
+    overflow-y: auto; /* 保留 overflow-y: auto，允许内容垂直滚动 */
+    max-height: 80vh; /* 保持这个设置，以确保内容区域有适当的高度 */
+    border: 1px solid #ddd; /* 增加边框便于查看区域的边界 */
+    border-radius: 8px; /* 添加圆角效果 */
+}
+        #return{
+    color: aliceblue;
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h3>Conversations</h3>
+        <ul id="title-list"></ul>
+    </div>
+    <div id="content">
+        <h2 id="conversation-title">Select a Conversation</h2>
+        <div id="conversation-content">
+            <h3>Conversation Content</h3>
+            <div id="content-text"></div>
+        </div>
+        <p> <a href="decisions.html" id="return">Return to Project Introduction </a></p>
+    </div>
+    <div id="charts">
+        <div id="conversation-stats">
+            <p><strong>Total Words:</strong> <span id="total-words"></span></p>
+            <p><strong>Dialogue Turns:</strong> <span id="turns"></span></p>
+            <p><strong>Duration (Hours):</strong> <span id="duration-hours"></span></p>
+            <p><strong>Total Choices:</strong> <span id="total-choices"></span></p>
+            <p><strong>Nested Choices Depth:</strong> <span id="nested-choices-depth"></span></p>
+        </div>
+        <canvas id="rankingRadar"></canvas>
+    </div>
+
+    <script>
+        // Load data from conversations.json
+        let conversations = [];
+        let radarChart = null;
+
+        // Fetch the JSON data
+        fetch('conversations.json')
+            .then(response => response.json())
+            .then(data => {
+                conversations = data.map(conversation => {
+                    if (!conversation || !conversation.mapping) {
+                        return { ...conversation, total_word_count: 0, turns: 0, duration_hours: 0, total_choices: 0, nested_choices_depth: 0 };
+                    }
+                    // Calculate total word count
+                    const totalWordCount = Object.values(conversation.mapping || {}).reduce((sum, node) => {
+                        if (node.message && node.message.content && node.message.content.content_type === 'text') {
+                            return sum + node.message.content.parts[0].split(/\s+/).length;
+                        }
+                        return sum;
+                    }, 0);
+
+                    // Calculate the number of turns
+                    const turns = Object.values(conversation.mapping || {}).filter(node => node.message && node.message.author.role === 'user').length;
+
+                    // Calculate duration in hours
+                    const createTime = conversation.create_time ? new Date(conversation.create_time * 1000) : null;
+                    const updateTime = conversation.update_time ? new Date(conversation.update_time * 1000) : null;
+                    const durationHours = createTime && updateTime ? ((updateTime - createTime) / (1000 * 60 * 60)).toFixed(2) : "N/A";
+
+                    // Calculate total choices
+                    const totalChoices = Object.values(conversation.mapping || {}).filter(node => node.children && node.children.length > 0).length;
+
+                    // Calculate nested choices depth using parent-child relationships, avoiding infinite loops
+                    function calculateDepth(nodeId, mapping, visited = new Set(), currentDepth = 1) {
+                        if (visited.has(nodeId)) {
+                            return currentDepth; // Prevent infinite loops
+                        }
+                        visited.add(nodeId);
+                        const node = mapping[nodeId];
+                        if (!node || !node.children || node.children.length === 0) {
+                            return currentDepth;
+                        }
+                        let maxDepth = currentDepth;
+                        node.children.forEach(childId => {
+                            maxDepth = Math.max(maxDepth, calculateDepth(childId, mapping, visited, currentDepth + 1));
+                        });
+                        return maxDepth;
+                    }
+
+                    const rootNodes = Object.values(conversation.mapping).filter(node => !node.parent);
+                    let maxNestingDepth = 0;
+                    rootNodes.forEach(rootNode => {
+                        const depth = calculateDepth(rootNode.id, conversation.mapping, new Set());
+                        maxNestingDepth = Math.max(maxNestingDepth, depth);
+                    });
+
+                    return {
+                        ...conversation,
+                        total_word_count: totalWordCount,
+                        turns: turns,
+                        duration_hours: durationHours !== "N/A" ? parseFloat(durationHours) : 0,
+                        total_choices: totalChoices,
+                        nested_choices_depth: maxNestingDepth
+                    };
+                });
+
+                // Populate the conversation list
+                conversations.forEach(conv => {
+                    const translatedTitle = conv.title; // Placeholder for actual translation logic
+                    $('#title-list').append(`<li data-id="${conv.id}">${translatedTitle}</li>`);
+                });
+
+                // After data is loaded, handle clicking on a conversation title
+                $('#title-list').on('click', 'li', function() {
+                    const conversationId = $(this).data('id');
+                    const selectedConversation = conversations.find(conv => conv.id === conversationId);
+
+                    if (!selectedConversation) return;
+
+                    // Update content area
+                    $('#conversation-title').text(selectedConversation.title);
+
+                    // Update conversation stats
+                    $('#total-words').text(selectedConversation.total_word_count);
+                    $('#turns').text(selectedConversation.turns);
+                    $('#duration-hours').text(selectedConversation.duration_hours);
+                    $('#total-choices').text(selectedConversation.total_choices);
+                    $('#nested-choices-depth').text(selectedConversation.nested_choices_depth);
+
+// Update conversation content
+const contentNodes = Object.values(selectedConversation.mapping || {}).filter(node => node.message && node.message.content && node.message.content.content_type === 'text');
+const messages = contentNodes.map(node => {
+    const author = node.message.author.role === 'assistant' ? 'ChatGPT' : (node.message.author.role === 'user' ? 'User' : 'System');
+    const text = node.message.content.parts.join(' ');
+    return { author, text };
+});
+
+// 使用 escapeHtml 函数对内容进行转义，防止 HTML 被解析
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+const contentTextHtml = messages.map(message => `
+    <div class="message">
+        <div class="author">${message.author}:</div>
+        <pre>${escapeHtml(message.text)}</pre>
+    </div>
+`).join('');
+
+$('#content-text').html(contentTextHtml);
+
+                    // Update ranking radar chart
+                    if (radarChart) {
+                        radarChart.destroy();
+                    }
+                    const ctxRanking = document.getElementById('rankingRadar').getContext('2d');
+                    ctxRanking.canvas.width = 600;
+                    ctxRanking.canvas.height = 400;
+                    rankings = {
+                        total_word_count: conversations.map(conv => conv && conv.total_word_count !== undefined ? conv.total_word_count : 0).sort((a, b) => a - b),
+                        turns: conversations.map(conv => conv && conv.turns !== undefined ? conv.turns : 0).sort((a, b) => a - b),
+                        duration_hours: conversations.map(conv => conv && conv.duration_hours !== undefined ? conv.duration_hours : 0).sort((a, b) => a - b),
+                        total_choices: conversations.map(conv => conv && conv.total_choices !== undefined ? conv.total_choices : 0).sort((a, b) => a - b),
+                        nested_choices_depth: conversations.map(conv => conv && conv.nested_choices_depth !== undefined ? conv.nested_choices_depth : 0).sort((a, b) => a - b)
+                    };
+
+                    const rankData = [
+                        rankings.total_word_count.indexOf(selectedConversation.total_word_count) + 1,
+                        rankings.turns.indexOf(selectedConversation.turns) + 1,
+                        rankings.duration_hours.indexOf(selectedConversation.duration_hours) + 1,
+                        rankings.total_choices.indexOf(selectedConversation.total_choices) + 1,
+                        rankings.nested_choices_depth.indexOf(selectedConversation.nested_choices_depth) + 1
+                    ];
+
+                    radarChart = new Chart(ctxRanking, {
+  type: 'radar',
+  data: {
+    labels: ['Total Words', 'Dialogue Turns', 'Duration (Hours)', 'Total Choices', 'Nested Choices Depth'],
+    datasets: [{
+      label: 'Ranking in All Conversations',
+      data: rankData,
+      // 在这里定义渐变背景色
+      backgroundColor: function(context) {
+        const chart = context.chart;
+        const { ctx, chartArea } = chart;
+
+        if (!chartArea) {
+          // 如果 chartArea 尚未准备好，则返回默认颜色
+          return 'rgba(255, 204, 0, 0.5)';
+        }
+
+        const gradient = ctx.createRadialGradient(
+          chartArea.width / 2, chartArea.height / 2, 0, // 渐变从图表的中心开始
+          chartArea.width / 2, chartArea.height / 2, chartArea.width / 2 // 渐变扩展到图表的外边缘
+        );
+
+        gradient.addColorStop(0, 'rgba(255, 241, 213, 0.7)'); // 中间黄色，带一定透明度
+        gradient.addColorStop(1, 'rgba(244, 160 ,40, 1)'); // 边缘橙色，带一定透明度
+
+        return gradient;
+      },
+      borderColor: 'rgba(0, 0, 0, 1)',
+      borderWidth: 0,
+      pointBackgroundColor: 'rgba(0, 0, 0, 0)',
+      pointBorderColor: 'rgba(0, 0, 0, 0)',
+      pointBorderWidth: 2,
+      pointRadius: 10,
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      r: {
+        angleLines: {
+          color: 'rgba(204, 204, 204, 0.1)', // 控制从中心到角的线条颜色
+          lineWidth: 1,
+        },
+        grid: {
+          color: 'rgba(204, 204, 204, 0.1)', // 控制网格线颜色
+          lineWidth: 1,
+        },
+        pointLabels: {
+          font: {
+            size: 14, // 角标的字体大小
+            family: 'Arial', // 角标的字体
+            weight: 'bold', // 角标字体粗细
+          },
+          color: 'rgba(255, 255, 255, 1)', // 角标的字体颜色
+          padding: 50 // 控制角标文字离中心的距离
+        },
+        ticks: {
+          backdropColor: 'rgba(0, 0, 0, 0)', // 设置背景颜色为透明
+          color: 'rgba(255, 255, 255, 0.6)', // 设置标签的字体颜色
+          font: {
+            size: 12, // 标签字体大小
+            family: 'Arial', // 标签字体
+          },
+        }
+      }
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(tooltipItem) {
+            return `Metric: ${tooltipItem.label}, Rank: ${tooltipItem.raw}`; // 自定义工具提示
+          }
+        }
+      },
+      legend: {
+        display: true, // 是否显示图例
+        position: 'top', // 图例位置: 'top', 'left', 'bottom', 'right'
+        align: 'center', // 对齐方式: 'start', 'center', 'end'
+        labels: {
+          boxWidth: 20, // 图例方块的宽度
+          boxHeight: 20, // 图例方块的高度（Chart.js 3.x+）
+          color: 'rgba(244, 160 ,40, 1)', // 图例文本颜色
+          font: {
+            size: 24, // 图例文本大小
+            family: 'Arial', // 图例字体
+            weight: 'bold', // 图例字体粗细
+          },
+          padding: 20, // 文本和图例方块之间的间距
+          usePointStyle: true, // 如果你想要图例中的方块显示为点的形状
+        }
+      } 
+    }, 
+    hover: {
+      mode: 'nearest',
+      intersect: true,
+      onHover: function(e) {
+        const point = this.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+        if (point.length) {
+          e.native.target.style.cursor = 'pointer'; // 鼠标悬停时更改指针样式
+        } else {
+          e.native.target.style.cursor = 'default';
+        }
+      }
+    }
+  },
+  plugins: [{
+    beforeDraw: function(chart) {
+      const ctx = chart.ctx;
+      const imgSrcArray = [
+        'web/images/Time.png',
+        'web/images/Text.png',
+        'web/images/Turns.png',
+        'web/images/Options1.png',
+        'web/images/Nest.png'
+      ];
+      
+      imgSrcArray.forEach((src, index) => {
+        const img = new Image();
+        img.src = src;
+
+        // 加载图片后绘制
+        img.onload = function() {
+          const point = chart.scales.r.getPointPosition(index, chart.scales.r.drawingArea + 20);
+          ctx.drawImage(img, point.x - 29, point.y - 24, 59, 50); // 控制图片的大小和位置
+        };
+      });
+    }
+  }]
+});
+
+
+                });
+            })
+            .catch(error => {
+                console.error('Error loading conversation data:', error);
+                alert('Error loading conversation data. Please check the console for more details.');
+            });
+
+    </script>
+</body>
+</html>
+
+
