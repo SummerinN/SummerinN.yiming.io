@@ -1,48 +1,63 @@
-# .github/workflows/deploy-pages.yml
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
-  # 当 main 分支有 push 时触发
   push:
-    branches: ["main"]
-  # 也可以手动触发
+    branches: [ "main" ]
   workflow_dispatch:
 
-permissions:
-  # 配置 GitHub Token 权限：阅读仓库内容、写入 Pages，以及写入 id-token
-  contents: read
-  pages: write
-  id-token: write
-
-# 限制同时只能有一个部署在进行中，避免多个部署冲突
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  deploy:
-    # 部署作业，运行在 Ubuntu 环境
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      # 检出代码
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 配置 Pages 部署环境
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+      - name: Build site
+        run: |
+          # 这里写你的构建命令，如果只是静态文件，可以简单地复制所有内容到 public 目录
+          mkdir -p public
+          cp -R . public
+          # 如果不需要某些文件（例如 .git 目录），可以删除
+          rm -rf public/.git
 
-      # 上传构件：将整个仓库内容上传作为部署内容
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
         with:
-          # 如果你需要上传所有文件（包括隐藏文件），可以添加 include-hidden-files: true
-          path: '.'
+          name: site-content
+          path: public
+          include-hidden-files: true
 
-      # 部署到 GitHub Pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-content
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 尝试克隆 gh-pages 分支，如果不存在则创建一个新的孤立分支
+          if git ls-remote --exit-code origin gh-pages; then
+            git clone --depth=1 --branch=gh-pages https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} gh-pages
+          else
+            git clone https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} gh-pages
+            cd gh-pages
+            git checkout --orphan gh-pages
+            git rm -rf .
+            cd ..
+          fi
+          cd gh-pages
+          # 清空旧内容
+          rm -rf *
+          # 将上一步下载的构建内容复制到当前目录（下载后 artifact 会在工作区中以 site-content 目录存在）
+          cp -R ../site-content/* .
+          # 配置 Git 提交信息
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Deploy updated site" || echo "No changes to commit"
+          git push origin gh-pages --force
