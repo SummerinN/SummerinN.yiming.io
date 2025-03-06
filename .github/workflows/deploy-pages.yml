@@ -7,17 +7,22 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 或者尝试改成 ubuntu-22.04
     steps:
+      - name: Reinstall krb5 library
+        run: |
+          sudo apt-get update
+          sudo apt-get install --reinstall libgssapi-krb5-2
+
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Build site
         run: |
-          # 如果你有自己的构建命令，请替换下面这行
-          # 这里简单地把仓库中除 .git 外的所有内容复制到 public 目录
           mkdir -p public
+          # 将当前目录（除 public 和 .git 外）的所有文件复制到 public 中
           find . -maxdepth 1 -mindepth 1 ! -name "public" ! -name ".git" -exec cp -R {} public \;
+          rm -rf public/.git
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
