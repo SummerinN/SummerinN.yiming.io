@@ -14,10 +14,8 @@ jobs:
 
       - name: Build site
         run: |
-          # 这里写你的构建命令，如果只是静态文件，可以简单地复制所有内容到 public 目录
           mkdir -p public
-          cp -R . public
-          # 如果不需要某些文件（例如 .git 目录），可以删除
+    rsync -av --exclude=public . public
           rm -rf public/.git
 
       - name: Upload site artifact
