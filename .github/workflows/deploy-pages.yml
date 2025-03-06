@@ -2,60 +2,25 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Build site
         run: |
+          # 如果你有自己的构建命令，请替换下面这行
+          # 这里简单地把仓库中除 .git 外的所有内容复制到 public 目录
           mkdir -p public
-    rsync -av --exclude=public . public
-          rm -rf public/.git
-
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-content
-          path: public
-          include-hidden-files: true
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-content
+          find . -maxdepth 1 -mindepth 1 ! -name "public" ! -name ".git" -exec cp -R {} public \;
 
       - name: Deploy to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # 尝试克隆 gh-pages 分支，如果不存在则创建一个新的孤立分支
-          if git ls-remote --exit-code origin gh-pages; then
-            git clone --depth=1 --branch=gh-pages https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} gh-pages
-          else
-            git clone https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} gh-pages
-            cd gh-pages
-            git checkout --orphan gh-pages
-            git rm -rf .
-            cd ..
-          fi
-          cd gh-pages
-          # 清空旧内容
-          rm -rf *
-          # 将上一步下载的构建内容复制到当前目录（下载后 artifact 会在工作区中以 site-content 目录存在）
-          cp -R ../site-content/* .
-          # 配置 Git 提交信息
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add .
-          git commit -m "Deploy updated site" || echo "No changes to commit"
-          git push origin gh-pages --force
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
