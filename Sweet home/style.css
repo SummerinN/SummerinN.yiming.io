@@ -1,0 +1,13 @@
+#myCanv{
+  background-color: black;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  position: fixed;
+}
+
+@font-face {
+  font-family: pixel;
+  src: url("fonts/pixelmix.ttf")format("truetype");
+}
